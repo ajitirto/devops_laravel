@@ -5,8 +5,18 @@ on:
         branches: ["master"]
 
 jobs:
-    test: 
+    laravel-mysql: 
         runs-on: ubuntu-latest
+
+        services:
+          mysql:
+            image: mysql:8.0.21
+            env:
+              MYSQL_DATABASE: posts-test
+              MYSQL_ROOT_PASSWORD: root
+            ports:
+              - 3306:3306
+            options: --health-cmd="mysqladmin ping"
         steps: 
             # - uses: actions/checkout@v3 
             - uses: "shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e"
@@ -37,9 +47,7 @@ jobs:
               run: |
                 cd api
                 php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=90 --min-style=90 --ansi --format=github-action
-            # - name: Run tests
-            #   run: |
-            #     cd api
-            #     php artisan test
+
+
 
                 
