@@ -1,0 +1,5 @@
+name: First pipeline
+
+on:
+    push:
+        branches: ["master"]
