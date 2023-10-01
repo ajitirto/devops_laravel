@@ -19,7 +19,7 @@ jobs:
                     cp .env.ci .env
             - name: "Install Dependencies"
               run: |
-                  composer install -q --no-ansi \
-                  --no-interaction --no-scripts --no-progress
+                  cd api
+                  composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
                 
