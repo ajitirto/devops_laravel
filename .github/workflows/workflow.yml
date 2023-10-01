@@ -8,6 +8,4 @@ jobs:
     test: 
         runs-on: ubuntu-latest
     steps: 
-        - uses: actions/checkout@v3
-        - name: list
-            run: ls -a 
+        - uses: actions/checkout@v3 
